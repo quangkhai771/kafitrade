@@ -48,9 +48,9 @@ const CONFIG = {
     
     // Page Content
     content: {
-        title: "Kafi Trade",
-        subtitle: "Ứng dụng trading thông minh #1 Việt Nam",
-        description: "Giao dịch dễ dàng, lợi nhuận tối đa với công nghệ AI tiên tiến",
+        title: "MỞ TÀI KHOẢN",
+        subtitle: "",
+        description: "",
         features: [
             "🚀 Giao diện thân thiện, dễ sử dụng",
             "📊 Phân tích kỹ thuật chuyên sâu",

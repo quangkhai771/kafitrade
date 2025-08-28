@@ -3,169 +3,89 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kafi Trade - Ứng dụng Trading #1 Việt Nam</title>
-    <meta name="description" content="Giao dịch dễ dàng, lợi nhuận tối đa với công nghệ AI tiên tiến. Nhận ưu đãi đặc biệt khi đăng ký ngay hôm nay!">
-    
-    <!-- Open Graph Meta Tags -->
-    <meta property="og:title" content="Kafi Trade - Ứng dụng Trading #1 Việt Nam">
-    <meta property="og:description" content="Giao dịch dễ dàng, lợi nhuận tối đa với công nghệ AI tiên tiến">
-    <meta property="og:type" content="website">
-    
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <title>Kafi Trade - Đầu tư không giới hạn</title>
+    <meta name="description" content="Nhận ưu đãi đầu tư cực hấp dẫn và cơ hội mở khoá hành trình tài chính cùng KAI">
     
     <!-- CSS -->
     <link rel="stylesheet" href="css/style.css">
-    
-    <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="favicon.ico">
 </head>
 <body>
-    <!-- Loading Spinner -->
-    <div id="loading" class="loading-overlay">
-        <div class="spinner"></div>
-    </div>
-
-    <!-- Header -->
-    <header class="header">
+    <header class="banner">
         <div class="container">
-            <div class="logo">
-                <h1>Kafi Trade</h1>
+            <div class="banner-content">
+                <div class="brand">
+                    <h3>Kafi Trade</h3>
+                </div>
             </div>
-            <nav class="nav">
-                <a href="#features" class="nav-link">Tính năng</a>
-                <a href="#offer" class="nav-link">Ưu đãi</a>
-                <a href="#download" class="nav-link cta-button">Tải app</a>
-            </nav>
         </div>
     </header>
 
+    <!-- Hero Banner Section -->
+    <section class="hero-banner">
+        <div class="container">
+            <div class="hero-banner-content">
+                <h2 class="hero-banner-title">Ưu đãi đặc biệt cho nhà đầu tư mới</h2>
+                <div class="hero-benefits">
+                    <div class="benefit-badge">Tài khoản VIP miễn phí 30 ngày</div>
+                    <div class="benefit-badge">Bonus 100$ khi nạp lần đầu</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Hero Section -->
     <section class="hero">
-        <div class="hero-background">
-            <div class="gradient-orb orb-1"></div>
-            <div class="gradient-orb orb-2"></div>
-            <div class="gradient-orb orb-3"></div>
-        </div>
-        
         <div class="container">
             <div class="hero-content">
-                <div class="hero-text">
-                    <h1 class="hero-title">
-                        <span class="gradient-text" id="heroTitle">Kafi Trade</span>
-                        <span class="subtitle" id="heroSubtitle">Ứng dụng trading thông minh #1 Việt Nam</span>
-                    </h1>
-                    <p class="hero-description" id="heroDescription">
-                        Giao dịch dễ dàng, lợi nhuận tối đa với công nghệ AI tiên tiến
-                    </p>
+                <div class="hero-left">
+                    <h1 class="hero-title">GIAO DỊCH<br>THÔNG MINH</h1>
+                    <p class="hero-subtitle">Nền tảng trading hiện đại với công nghệ AI,<br>giúp bạn đầu tư hiệu quả và an toàn.</p>
                     
-                    <!-- App Store Buttons -->
-                    <div class="app-buttons">
-                        <button id="downloadBtn" class="download-btn primary">
-                            <span class="btn-icon">📱</span>
-                            Tải ứng dụng ngay
-                        </button>
-                        <button class="download-btn secondary" onclick="scrollToForm()">
-                            <span class="btn-icon">🎁</span>
-                            Nhận ưu đãi
-                        </button>
-                    </div>
-                </div>
-                
-                <!-- Form Section -->
-                <div class="form-container">
-                    <div class="form-card">
-                        <h3 class="form-title">Nhận ưu đãi đặc biệt</h3>
-                        <p class="form-subtitle">Đăng ký ngay để nhận những ưu đãi hấp dẫn</p>
-                        
+                    <!-- Form -->
+                    <div class="form-container">
                         <form id="leadForm" class="lead-form">
-                            <div class="form-group" data-field="fullName">
-                                <input type="text" id="fullName" name="fullName" placeholder="Họ và tên" required>
-                                <span class="form-error"></span>
-                            </div>
+                            <!-- Dynamic form fields will be generated here -->
+                            <div id="form-fields"></div>
                             
-                            <div class="form-group" data-field="phone">
-                                <input type="tel" id="phone" name="phone" placeholder="Số điện thoại" required>
-                                <span class="form-error"></span>
-                            </div>
-                            
-                            <div class="form-group" data-field="email">
-                                <input type="email" id="email" name="email" placeholder="Email" required>
-                                <span class="form-error"></span>
-                            </div>
-                            
-                            <div class="form-group" data-field="company" style="display: none;">
-                                <input type="text" id="company" name="company" placeholder="Công ty (tùy chọn)">
-                                <span class="form-error"></span>
-                            </div>
-                            
-                            <div class="form-group" data-field="experience" style="display: none;">
-                                <select id="experience" name="experience">
-                                    <option value="">Kinh nghiệm trading</option>
-                                    <option value="beginner">Mới bắt đầu</option>
-                                    <option value="intermediate">Trung bình</option>
-                                    <option value="advanced">Nâng cao</option>
-                                    <option value="expert">Chuyên gia</option>
-                                </select>
-                                <span class="form-error"></span>
-                            </div>
-                            
-                            <button type="submit" class="submit-btn" id="submitBtn">
-                                <span class="btn-text">Nhận ưu đãi ngay</span>
-                                <span class="btn-loading" style="display: none;">
-                                    <div class="btn-spinner"></div>
-                                    Đang xử lý...
-                                </span>
+                            <button type="submit" class="submit-btn" id="submit-btn">
+                                <span id="submit-text">MỞ TÀI KHOẢN</span>
+                                <div class="loading-spinner" id="loading-spinner"></div>
                             </button>
                         </form>
                         
-                        <div id="formMessage" class="form-message"></div>
+                        <div class="form-message" id="form-message"></div>
                     </div>
                 </div>
-            </div>
-        </div>
-    </section>
 
-    <!-- Features Section -->
-    <section id="features" class="features">
-        <div class="container">
-            <h2 class="section-title">Tại sao chọn Kafi Trade?</h2>
-            <div class="features-grid" id="featuresGrid">
-                <!-- Features will be populated by JavaScript -->
-            </div>
-        </div>
-    </section>
-
-    <!-- Offer Section -->
-    <section id="offer" class="offer">
-        <div class="container">
-            <div class="offer-content">
-                <h2 class="offer-title" id="offerTitle">Ưu đãi đặc biệt</h2>
-                <p class="offer-description" id="offerDescription">Đăng ký ngay để nhận:</p>
-                <div class="benefits-grid" id="benefitsGrid">
-                    <!-- Benefits will be populated by JavaScript -->
+                <div class="hero-right">
+                    <div class="qr-section">
+                        <div class="qr-code">
+                            <div class="qr-placeholder">
+                                <svg width="120" height="120" viewBox="0 0 120 120" fill="none">
+                                    <rect width="120" height="120" fill="white" rx="8"/>
+                                    <rect x="10" y="10" width="20" height="20" fill="black"/>
+                                    <rect x="40" y="10" width="10" height="10" fill="black"/>
+                                    <rect x="60" y="10" width="10" height="10" fill="black"/>
+                                    <rect x="90" y="10" width="20" height="20" fill="black"/>
+                                    <rect x="10" y="40" width="10" height="10" fill="black"/>
+                                    <rect x="30" y="40" width="10" height="10" fill="black"/>
+                                    <rect x="50" y="40" width="20" height="10" fill="black"/>
+                                    <rect x="90" y="40" width="10" height="10" fill="black"/>
+                                    <rect x="110" y="40" width="10" height="10" fill="black"/>
+                                    <rect x="10" y="60" width="10" height="10" fill="black"/>
+                                    <rect x="40" y="60" width="10" height="10" fill="black"/>
+                                    <rect x="70" y="60" width="10" height="10" fill="black"/>
+                                    <rect x="100" y="60" width="10" height="10" fill="black"/>
+                                    <rect x="10" y="90" width="20" height="20" fill="black"/>
+                                    <rect x="50" y="90" width="10" height="10" fill="black"/>
+                                    <rect x="80" y="90" width="10" height="10" fill="black"/>
+                                    <rect x="90" y="90" width="20" height="20" fill="black"/>
+                                </svg>
+                            </div>
+                            <p class="qr-text">Quét mã QR để tải app</p>
+                        </div>
+                    </div>
                 </div>
-                <button class="cta-button large" onclick="scrollToForm()">
-                    Đăng ký nhận ưu đãi ngay
-                </button>
-            </div>
-        </div>
-    </section>
-
-    <!-- Download Section -->
-    <section id="download" class="download">
-        <div class="container">
-            <h2 class="section-title">Tải ứng dụng ngay</h2>
-            <p class="section-description">Có mặt trên tất cả các nền tảng</p>
-            <div class="download-buttons">
-                <a href="#" id="androidLink" class="store-button android">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" alt="Get it on Google Play">
-                </a>
-                <a href="#" id="iosLink" class="store-button ios">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/3/3c/Download_on_the_App_Store_Badge.svg" alt="Download on the App Store">
-                </a>
             </div>
         </div>
     </section>
@@ -176,21 +96,24 @@
             <div class="footer-content">
                 <div class="footer-section">
                     <h3>Kafi Trade</h3>
-                    <p>Ứng dụng trading thông minh #1 Việt Nam</p>
+                    <p>Nền tảng giao dịch hiện đại với công nghệ AI, giúp bạn đầu tư thông minh và hiệu quả.</p>
                 </div>
                 <div class="footer-section">
                     <h4>Liên hệ</h4>
+                    <p>Hotline: 1900 1234</p>
                     <p>Email: support@kafitrade.com</p>
-                    <p>Hotline: 1900 xxxx</p>
+                    <p>Địa chỉ: 123 Nguyễn Huệ, Q.1, TP.HCM</p>
                 </div>
                 <div class="footer-section">
-                    <h4>Pháp lý</h4>
-                    <a href="#">Điều khoản sử dụng</a>
-                    <a href="#">Chính sách bảo mật</a>
+                    <h4>Dịch vụ</h4>
+                    <a href="#">Giao dịch Forex</a>
+                    <a href="#">Chứng khoán</a>
+                    <a href="#">Crypto Trading</a>
+                    <a href="#">Khóa học Trading</a>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2024 Kafi Trade. All rights reserved.</p>
+                <p>&copy; 2024 Kafi Trade. Tất cả quyền được bảo lưu. | Chính sách bảo mật | Điều khoản sử dụng</p>
             </div>
         </div>
     </footer>

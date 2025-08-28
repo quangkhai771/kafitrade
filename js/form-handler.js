@@ -3,8 +3,8 @@
 class FormHandler {
     constructor() {
         this.form = document.getElementById('leadForm');
-        this.submitBtn = document.getElementById('submitBtn');
-        this.messageContainer = document.getElementById('formMessage');
+        this.submitBtn = document.getElementById('submit-btn');
+        this.messageContainer = document.getElementById('form-message');
         this.isSubmitting = false;
         
         this.init();
@@ -52,7 +52,7 @@ class FormHandler {
 
         // Update submit button text
         if (this.submitBtn && CONFIG.form.submitText) {
-            const btnText = this.submitBtn.querySelector('.btn-text');
+            const btnText = this.submitBtn.querySelector('#submit-text');
             if (btnText) {
                 btnText.textContent = CONFIG.form.submitText;
             }
@@ -497,16 +497,16 @@ class FormHandler {
     setSubmitButtonLoading(loading) {
         if (!this.submitBtn) return;
 
-        const btnText = this.submitBtn.querySelector('.btn-text');
-        const btnLoading = this.submitBtn.querySelector('.btn-loading');
+        const btnText = this.submitBtn.querySelector('#submit-text');
+        const btnLoading = this.submitBtn.querySelector('#loading-spinner');
 
         if (loading) {
             this.submitBtn.disabled = true;
             if (btnText) btnText.style.display = 'none';
-            if (btnLoading) btnLoading.style.display = 'flex';
+            if (btnLoading) btnLoading.style.display = 'inline-block';
         } else {
             this.submitBtn.disabled = false;
-            if (btnText) btnText.style.display = 'block';
+            if (btnText) btnText.style.display = 'inline';
             if (btnLoading) btnLoading.style.display = 'none';
         }
     }
