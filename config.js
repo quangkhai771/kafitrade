@@ -41,8 +41,8 @@ const CONFIG = {
                 placeholder: "Kinh nghiệm trading"
             }
         },
-        submitText: "Nhận ưu đãi ngay",
-        successMessage: "Cảm ơn bạn! Chúng tôi sẽ liên hệ sớm nhất.",
+        submitText: "ĐĂNG KÝ NGAY",
+        successMessage: "Tiến hành tải App và đăng nhập",
         errorMessage: "Có lỗi xảy ra. Vui lòng thử lại."
     },
     

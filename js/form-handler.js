@@ -105,6 +105,14 @@ class FormHandler {
                     return 'Vui lòng chọn mức độ kinh nghiệm';
                 }
                 return null;
+            },
+            
+            terms: (value) => {
+                const checkbox = document.getElementById('terms');
+                if (!checkbox || !checkbox.checked) {
+                    return 'Vui lòng đồng ý với điều khoản sử dụng và chính sách bảo mật';
+                }
+                return null;
             }
         };
     }

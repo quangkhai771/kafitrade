@@ -6,6 +6,24 @@
     <title>Kafi Trade - Đầu tư không giới hạn</title>
     <meta name="description" content="Nhận ưu đãi đầu tư cực hấp dẫn và cơ hội mở khoá hành trình tài chính cùng KAI">
     
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+    <link rel="icon" type="image/png" href="assets/logo.png">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://kafitrade.com/">
+    <meta property="og:title" content="Kafi Trade - Giao dịch thông minh">
+    <meta property="og:description" content="Nền tảng trading hiện đại với công nghệ AI, giúp bạn đầu tư hiệu quả và an toàn. Miễn phí giao dịch, lãi Margin ưu đãi 6.5%">
+    <meta property="og:image" content="https://kafitrade.com/assets/social-preview.jpg">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://kafitrade.com/">
+    <meta property="twitter:title" content="Kafi Trade - Giao dịch thông minh">
+    <meta property="twitter:description" content="Nền tảng trading hiện đại với công nghệ AI, giúp bạn đầu tư hiệu quả và an toàn. Miễn phí giao dịch, lãi Margin ưu đãi 6.5%">
+    <meta property="twitter:image" content="https://kafitrade.com/assets/social-preview.jpg">
+    
     <!-- CSS -->
     <link rel="stylesheet" href="css/style.css">
 </head>
@@ -14,7 +32,9 @@
         <div class="container">
             <div class="banner-content">
                 <div class="brand">
-                    <h3>Kafi Trade</h3>
+                    <a href="index.html">
+                        <img src="assets/logo.svg" alt="Kafi Trade" style="height: 40px; width: auto;">
+                    </a>
                 </div>
             </div>
         </div>
@@ -22,14 +42,23 @@
 
     <!-- Hero Banner Section -->
     <section class="hero-banner">
-        <div class="container">
-            <div class="hero-banner-content">
-                <h2 class="hero-banner-title">Ưu đãi đặc biệt cho nhà đầu tư mới</h2>
-                <div class="hero-benefits">
-                    <div class="benefit-badge">Tài khoản VIP miễn phí 30 ngày</div>
-                    <div class="benefit-badge">Bonus 100$ khi nạp lần đầu</div>
+        <div class="banner-overlay">
+            <div class="container" style="margin: 400px;">
+                <div class="banner-content">
+                    <div class="banner-left">
+                        <p class="banner-subtitle">Nền tảng trading hiện đại với công nghệ AI, giúp bạn đầu tư hiệu quả và an toàn</p>
+                        <button class="banner-cta-btn" onclick="scrollToForm()">ĐĂNG KÝ NGAY</button>
+                    </div>
                 </div>
             </div>
+        </div>
+    </section>
+    
+    <!-- Mobile Banner Content -->
+    <section class="mobile-banner-content">
+        <div class="container">
+            <p class="mobile-subtitle">Nền tảng trading hiện đại với công nghệ AI, giúp bạn đầu tư hiệu quả và an toàn</p>
+            <button class="mobile-cta-btn" onclick="scrollToForm()">ĐĂNG KÝ NGAY</button>
         </div>
     </section>
 
@@ -42,7 +71,7 @@
                     <p class="hero-subtitle">Nền tảng trading hiện đại với công nghệ AI,<br>giúp bạn đầu tư hiệu quả và an toàn.</p>
                     
                     <!-- Form -->
-                    <div class="form-container">
+                    <div class="form-container" id="registration-form">
                         <form id="leadForm" class="lead-form">
                             <!-- Dynamic form fields will be generated here -->
                             <div id="form-fields"></div>
@@ -95,7 +124,7 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-section">
-                    <h3>Kafi Trade</h3>
+                    <img src="assets/logo.svg" alt="Kafi Trade" style="height: 50px; width: auto; margin-bottom: 15px;">
                     <p>Nền tảng giao dịch hiện đại với công nghệ AI, giúp bạn đầu tư thông minh và hiệu quả.</p>
                 </div>
                 <div class="footer-section">
@@ -113,7 +142,7 @@
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2024 Kafi Trade. Tất cả quyền được bảo lưu. | Chính sách bảo mật | Điều khoản sử dụng</p>
+                <p>&copy; 2024 Kafi Trade. Tất cả quyền được bảo lưu. | <a href="privacy.html">Chính sách bảo mật</a> | <a href="terms.html">Điều khoản sử dụng</a></p>
             </div>
         </div>
     </footer>
@@ -124,5 +153,14 @@
     <script src="js/device-detection.js"></script>
     <script src="js/form-handler.js"></script>
     <script src="js/main.js"></script>
+    
+    <script>
+        function scrollToForm() {
+            document.getElementById('registration-form').scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+            });
+        }
+    </script>
 </body>
 </html>

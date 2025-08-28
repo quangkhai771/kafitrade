@@ -90,105 +90,161 @@ body {
 
 /* Hero Banner Section */
 .hero-banner {
-    background: var(--bg-hero);
-    padding: 2rem 0 1rem;
-    color: var(--white);
+    background: url('../assets/banner.jpg') center center/cover no-repeat;
+    min-height: 400px;
     position: relative;
     overflow: hidden;
 }
 
-.hero-banner::before {
-    content: '';
+.banner-overlay {
     position: absolute;
     top: 0;
     left: 0;
-    right: 0;
-    bottom: 0;
-    background: linear-gradient(45deg, rgba(255,255,255,0.1) 0%, transparent 50%, rgba(255,255,255,0.1) 100%);
-    pointer-events: none;
-}
-
-.hero-banner-content {
-    text-align: center;
-    position: relative;
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    display: flex;
+    align-items: center;
     z-index: 1;
 }
 
-.hero-stats {
-    display: flex;
-    justify-content: center;
-    gap: 3rem;
-    margin-bottom: 2rem;
+.banner-content {
+    width: 100%;
+    position: relative;
+    z-index: 2;
 }
 
-.stat-item {
+.banner-left {
+    max-width: 400px;
+    color: var(--text-dark);
+    text-align: left;
+    padding-left: 4rem;
+}
+
+.banner-title {
+    font-size: 3.5rem;
+    font-weight: 800;
+    line-height: 1.1;
+    margin-bottom: 1.5rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.banner-subtitle {
+    font-size: 1.4rem;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+    font-weight: 600;
+    color: var(--text-dark);
+    text-shadow: none;
+}
+
+.banner-features {
+    margin-bottom: 2.5rem;
+}
+
+.feature-item {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 0.8rem;
+    color: rgba(255, 255, 255, 0.95);
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.banner-cta-btn {
+    background: linear-gradient(135deg, #f59e0b, #f97316);
+    color: white;
+    border: none;
+    padding: 1.4rem 3rem;
+    font-size: 1.2rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 10px 30px rgba(245, 158, 11, 0.4);
+    text-shadow: none;
+    margin-top: 1rem;
+}
+
+.banner-cta-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 35px rgba(245, 158, 11, 0.4);
+    background: linear-gradient(135deg, #f97316, #ea580c);
+}
+
+/* Mobile Banner Content */
+.mobile-banner-content {
+    display: none;
+    background: var(--bg-light);
+    padding: 2rem 0;
     text-align: center;
 }
 
-.stat-number {
-    font-size: 2.5rem;
-    font-weight: 800;
-    color: var(--white);
-    margin-bottom: 0.5rem;
+.mobile-subtitle {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+    color: var(--text-dark);
+    font-weight: 500;
 }
 
-.stat-label {
-    font-size: 0.9rem;
-    color: rgba(255, 255, 255, 0.8);
+.mobile-cta-btn {
+    background: linear-gradient(135deg, #f59e0b, #f97316);
+    color: white;
+    border: none;
+    padding: 1.2rem 2.5rem;
+    font-size: 1.1rem;
+    font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.5px;
-}
-
-.hero-banner-title {
-    font-size: 2rem;
-    font-weight: 700;
-    margin-bottom: 2rem;
-    color: var(--white);
-}
-
-.hero-benefits {
-    display: flex;
-    justify-content: center;
-    gap: 1.5rem;
-    flex-wrap: wrap;
-}
-
-.benefit-badge {
-    background: rgba(255, 255, 255, 0.2);
-    backdrop-filter: blur(10px);
-    padding: 0.8rem 1.5rem;
-    border-radius: 25px;
-    font-weight: 600;
-    font-size: 0.9rem;
-    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50px;
+    cursor: pointer;
     transition: all 0.3s ease;
+    box-shadow: 0 8px 25px rgba(245, 158, 11, 0.3);
 }
 
-.benefit-badge:hover {
-    background: rgba(255, 255, 255, 0.3);
-    transform: translateY(-2px);
+.mobile-cta-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 35px rgba(245, 158, 11, 0.4);
+    background: linear-gradient(135deg, #f97316, #ea580c);
 }
 
 @media (max-width: 768px) {
-    .hero-stats {
-        gap: 2rem;
+    .banner-subtitle,
+    .banner-cta-btn {
+        display: none;
     }
     
-    .stat-number {
-        font-size: 2rem;
+    .banner-left {
+        display: none;
     }
     
-    .hero-banner-title {
-        font-size: 1.5rem;
+    .hero-banner {
+        min-height: 300px;
+        background-position: right center;
     }
     
-    .hero-benefits {
-        flex-direction: column;
+    .banner-overlay {
+        min-height: 300px;
+    }
+    
+    .mobile-banner-content {
+        display: block;
+    }
+    
+    .mobile-banner-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: transparent;
+        display: flex;
         align-items: center;
-    }
-    
-    .benefit-badge {
-        max-width: 280px;
+        z-index: 1;
     }
 }
 
@@ -331,6 +387,18 @@ body {
     border: 1px solid var(--gray-100);
 }
 
+.form-title {
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--text-dark);
+    margin-bottom: 2rem;
+    background: var(--bg-hero);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
 .lead-form {
     display: flex;
     flex-direction: column;
@@ -464,6 +532,47 @@ body {
     background: rgba(239, 68, 68, 0.1);
     color: #dc2626;
     border: 1px solid rgba(239, 68, 68, 0.2);
+}
+
+/* Checkbox Styles */
+.checkbox-group {
+    margin-top: 1rem;
+}
+
+.checkbox-wrapper {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+}
+
+.checkbox-wrapper input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    margin: 0;
+    accent-color: var(--primary-green);
+    cursor: pointer;
+    flex-shrink: 0;
+    margin-top: 2px;
+}
+
+.checkbox-wrapper label {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    line-height: 1.4;
+    cursor: pointer;
+    flex: 1;
+}
+
+.checkbox-wrapper label a {
+    color: var(--primary-green);
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+.checkbox-wrapper label a:hover {
+    color: var(--dark-green);
+    text-decoration: underline;
 }
 
 /* Footer */

@@ -33,6 +33,12 @@ class KafiLandingPage {
         const fields = CONFIG.form.fields;
         formFieldsContainer.innerHTML = '';
 
+        // Add form title
+        const formTitle = document.createElement('h3');
+        formTitle.className = 'form-title';
+        formTitle.textContent = 'ĐĂNG KÝ TÀI KHOẢN';
+        formFieldsContainer.appendChild(formTitle);
+
         Object.keys(fields).forEach(fieldName => {
             const fieldConfig = fields[fieldName];
             
@@ -41,6 +47,10 @@ class KafiLandingPage {
                 formFieldsContainer.appendChild(formGroup);
             }
         });
+
+        // Add terms and privacy checkbox
+        const termsGroup = this.createTermsCheckbox();
+        formFieldsContainer.appendChild(termsGroup);
     }
 
     /**
@@ -81,6 +91,40 @@ class KafiLandingPage {
         errorSpan.id = `${fieldName}-error`;
 
         formGroup.appendChild(inputElement);
+        formGroup.appendChild(errorSpan);
+
+        return formGroup;
+    }
+
+    /**
+     * Create terms and privacy checkbox
+     */
+    createTermsCheckbox() {
+        const formGroup = document.createElement('div');
+        formGroup.className = 'form-group checkbox-group';
+        formGroup.id = 'terms-group';
+
+        const checkboxWrapper = document.createElement('div');
+        checkboxWrapper.className = 'checkbox-wrapper';
+
+        const checkbox = document.createElement('input');
+        checkbox.type = 'checkbox';
+        checkbox.id = 'terms';
+        checkbox.name = 'terms';
+        checkbox.required = true;
+        checkbox.checked = true; // Default checked
+
+        const label = document.createElement('label');
+        label.htmlFor = 'terms';
+        label.innerHTML = `Tôi đồng ý với <a href="terms.html" target="_blank">Điều khoản sử dụng</a> và <a href="privacy.html" target="_blank">Chính sách bảo mật</a>`;
+
+        const errorSpan = document.createElement('span');
+        errorSpan.className = 'form-error';
+        errorSpan.id = 'terms-error';
+
+        checkboxWrapper.appendChild(checkbox);
+        checkboxWrapper.appendChild(label);
+        formGroup.appendChild(checkboxWrapper);
         formGroup.appendChild(errorSpan);
 
         return formGroup;
@@ -140,7 +184,7 @@ class KafiLandingPage {
      */
     createQRCode(container, url) {
         // Use QR Server API to generate QR code with larger size
-        const qrSize = 180;
+        const qrSize = 200; // Increased from 180 to 200
         const qrUrl = `https://api.qrserver.com/v1/create-qr-code/?size=${qrSize}x${qrSize}&data=${encodeURIComponent(url)}`;
         
         const qrImg = document.createElement('img');

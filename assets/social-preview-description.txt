@@ -1,0 +1,22 @@
+Social Preview Image Description for Kafi Trade
+==============================================
+
+Recommended dimensions: 1200x630 pixels
+
+Content to include:
+- Kafi Trade logo (top left)
+- Main headline: "GIAO DỊCH THÔNG MINH"
+- Subtitle: "Nền tảng trading hiện đại với công nghệ AI"
+- Background: Dark gradient (#0f172a to #1e293b)
+- Accent elements: Purple/indigo gradient shapes
+- Call-to-action: "Đăng ký ngay - Miễn phí giao dịch"
+- Visual elements: Trading charts, mobile app mockup
+- Brand colors: #6366f1, #8b5cf6, #f59e0b
+
+This image will be used for:
+- Facebook Open Graph
+- Twitter Cards  
+- LinkedIn previews
+- Other social media platforms
+
+Note: This is a description file. The actual image should be created using design tools like Figma, Photoshop, or Canva based on these specifications.
