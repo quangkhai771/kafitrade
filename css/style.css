@@ -91,7 +91,7 @@ body {
 /* Hero Banner Section */
 .hero-banner {
     background: var(--bg-hero);
-    padding: 3rem 0;
+    padding: 2rem 0 1rem;
     color: var(--white);
     position: relative;
     overflow: hidden;
@@ -194,12 +194,13 @@ body {
 
 /* Hero Section */
 .hero {
-    min-height: 100vh;
+    min-height: 80vh;
     background: var(--bg-light);
     display: flex;
     align-items: center;
     position: relative;
     overflow: hidden;
+    padding: 2rem 0;
 }
 
 .hero::before {
