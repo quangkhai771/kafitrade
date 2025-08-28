@@ -1,0 +1,12 @@
+# Redirects for Cloudflare Pages
+
+# Redirect common paths to main page
+/home /
+/landing /
+/app /
+
+# Handle trailing slashes
+/index.html /
+
+# 404 fallback to main page (SPA behavior)
+/* /index.html 200
