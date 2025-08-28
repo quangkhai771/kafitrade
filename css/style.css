@@ -442,11 +442,6 @@ body {
     margin-bottom: 1rem;
 }
 
-.feature-title {
-    font-size: 1.2rem;
-    font-weight: 600;
-    margin-bottom: 0.5rem;
-}
 
 .feature-description {
     color: var(--text-secondary);

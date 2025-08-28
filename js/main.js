@@ -80,8 +80,7 @@ class KafiLandingPage {
             featureCard.className = 'feature-card';
             featureCard.innerHTML = `
                 <div class="feature-icon">${this.getFeatureIcon(index)}</div>
-                <h3 class="feature-title">${this.extractFeatureTitle(feature)}</h3>
-                <p class="feature-description">${this.extractFeatureDescription(feature)}</p>
+                <p class="feature-description">${feature}</p>
             `;
             
             // Add animation delay

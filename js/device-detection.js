@@ -146,12 +146,12 @@ class DeviceDetector {
         const os = this.device.os;
         
         if (os === 'android') {
-            this.redirectToStore('android');
+            window.location.href = CONFIG.appLinks.android;
         } else if (os === 'ios') {
-            this.redirectToStore('ios');
+            window.location.href = CONFIG.appLinks.ios;
         } else {
-            // For desktop/other devices, show both options
-            this.showAppStoreOptions();
+            // For desktop/other devices, default to Android
+            window.location.href = CONFIG.appLinks.android;
         }
     }
 
@@ -174,8 +174,12 @@ class DeviceDetector {
         }
 
         if (url) {
-            // Redirect in same tab instead of new tab/popup
-            window.location.href = url;
+            // Try to open in app first, then fallback to browser
+            if (this.device.isMobile) {
+                this.tryDeepLink(url);
+            } else {
+                window.open(url, '_blank');
+            }
         }
     }
 

@@ -65,21 +65,27 @@ class FormHandler {
     setupFormValidation() {
         this.validators = {
             fullName: (value) => {
-                if (!value.trim()) return 'Vui lòng nhập họ tên';
-                if (value.trim().length < 2) return 'Họ tên phải có ít nhất 2 ký tự';
-                if (!/^[a-zA-ZÀ-ỹ\s]+$/.test(value)) return 'Họ tên chỉ được chứa chữ cái và khoảng trắng';
+                const fieldConfig = CONFIG.form.fields.fullName;
+                if (!fieldConfig.enabled) return null;
+                if (fieldConfig.required && !value.trim()) return 'Vui lòng nhập họ tên';
+                if (value.trim() && value.trim().length < 2) return 'Họ tên phải có ít nhất 2 ký tự';
+                if (value.trim() && !/^[a-zA-ZÀ-ỹ\s]+$/.test(value)) return 'Họ tên chỉ được chứa chữ cái và khoảng trắng';
                 return null;
             },
             
             phone: (value) => {
-                if (!value.trim()) return 'Vui lòng nhập số điện thoại';
-                if (!isValidPhone(value)) return 'Số điện thoại không hợp lệ';
+                const fieldConfig = CONFIG.form.fields.phone;
+                if (!fieldConfig.enabled) return null;
+                if (fieldConfig.required && !value.trim()) return 'Vui lòng nhập số điện thoại';
+                if (value.trim() && !isValidPhone(value)) return 'Số điện thoại không hợp lệ';
                 return null;
             },
             
             email: (value) => {
-                if (!value.trim()) return 'Vui lòng nhập email';
-                if (!isValidEmail(value)) return 'Email không hợp lệ';
+                const fieldConfig = CONFIG.form.fields.email;
+                if (!fieldConfig.enabled) return null; // Skip validation if field is disabled
+                if (fieldConfig.required && !value.trim()) return 'Vui lòng nhập email';
+                if (value.trim() && !isValidEmail(value)) return 'Email không hợp lệ';
                 return null;
             },
             
@@ -275,17 +281,15 @@ class FormHandler {
             }
         });
 
+        // Always ensure email field exists (required by Google Sheets structure)
+        if (!data.email) {
+            data.email = ''; // Set empty string if email is not collected
+        }
+
         // Add metadata
         data.timestamp = new Date().toISOString();
         data.source = 'kafi-landing-page';
-        
-        // Get device info and add as separate fields for better compatibility
-        const deviceInfo = deviceDetector?.getDeviceInfo();
-        data.device = deviceInfo;
-        data.deviceType = deviceInfo?.type || '';
-        data.deviceOS = deviceInfo?.os || '';
-        data.deviceBrowser = deviceInfo?.browser || '';
-        
+        data.device = deviceDetector?.getDeviceInfo();
         data.userAgent = navigator.userAgent;
         data.referrer = document.referrer;
         data.utm_source = getUrlParameter('utm_source');
@@ -511,7 +515,7 @@ class FormHandler {
      * Show next steps after successful submission
      */
     showNextSteps() {
-        // Auto-redirect immediately in same tab
+        // Immediate redirect without delay to avoid popup blockers
         if (deviceDetector) {
             const device = deviceDetector.getDeviceInfo();
             
@@ -519,14 +523,14 @@ class FormHandler {
             if (device.type === 'desktop') {
                 window.location.href = CONFIG.appLinks.android;
             } else {
-                // For mobile devices, use smart detection
+                // For mobile devices, use smart detection with same-tab redirect
                 this.redirectToAppStoreSameTab();
             }
         }
     }
 
     /**
-     * Redirect to app store in same tab
+     * Redirect to app store in same tab (no popup)
      */
     redirectToAppStoreSameTab() {
         const device = deviceDetector.getDeviceInfo();

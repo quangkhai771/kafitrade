@@ -36,9 +36,9 @@ function doPost(e) {
       }
     }
     
-    // Validate required fields
-    if (!data.fullName || !data.phone || !data.email) {
-      return createResponse(false, 'Missing required fields');
+    // Validate required fields - only fullName and phone are mandatory
+    if (!data.fullName || !data.phone) {
+      return createResponse(false, 'Missing required fields: fullName and phone are mandatory');
     }
     
     // Add the lead to Google Sheets
@@ -98,16 +98,15 @@ function addLeadToSheet(data) {
       data.company || '',
       data.experience || '',
       data.source || 'kafi-landing-page',
-      data.device?.type || data.deviceType || '',
-      data.device?.os || data.deviceOS || '',
-      data.device?.browser || data.deviceBrowser || '',
+      data.device?.type || '',
+      data.device?.os || '',
+      data.device?.browser || '',
       data.userAgent || '',
       data.referrer || '',
       data.utm_source || '',
       data.utm_medium || '',
       data.utm_campaign || '',
-      deviceInfo,
-      'New' // Status column
+      deviceInfo
     ];
     
     // Add the row
@@ -167,8 +166,7 @@ function setupSheetHeaders(sheet) {
     'UTM Source',
     'UTM Medium',
     'UTM Campaign',
-    'Device Info',
-    'Status'
+    'Device Info'
   ];
   
   // Set headers
@@ -198,7 +196,6 @@ function setupSheetHeaders(sheet) {
   sheet.setColumnWidth(14, 100); // UTM Medium
   sheet.setColumnWidth(15, 120); // UTM Campaign
   sheet.setColumnWidth(16, 200); // Device Info
-  sheet.setColumnWidth(17, 80);  // Status
   
   // Freeze header row
   sheet.setFrozenRows(1);
@@ -208,7 +205,7 @@ function setupSheetHeaders(sheet) {
  * Format new row
  */
 function formatNewRow(sheet, rowNumber) {
-  const range = sheet.getRange(rowNumber, 1, 1, 17);
+  const range = sheet.getRange(rowNumber, 1, 1, 16);
   
   // Alternate row colors
   if (rowNumber % 2 === 0) {
@@ -219,11 +216,7 @@ function formatNewRow(sheet, rowNumber) {
   const timestampCell = sheet.getRange(rowNumber, 1);
   timestampCell.setNumberFormat('dd/mm/yyyy hh:mm:ss');
   
-  // Format status cell
-  const statusCell = sheet.getRange(rowNumber, 17);
-  statusCell.setBackground('#fff3cd');
-  statusCell.setFontColor('#856404');
-  statusCell.setHorizontalAlignment('center');
+  // No status cell formatting needed anymore
 }
 
 /**

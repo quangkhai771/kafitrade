@@ -8,7 +8,7 @@ const CONFIG = {
     
     // Google Sheets Integration
     googleSheets: {
-        scriptUrl: "https://script.google.com/macros/s/AKfycbxf2BRuehzVZtrz0Ju4YTS-3wbtX2fRPIIxOrQ7ufPmi2C-RSDF_73JUSp_9iz3kIia/exec",
+        scriptUrl: "https://script.google.com/macros/s/AKfycbzOltKetO8uhGcvfKA2QpTgC9ea_F_i_SFNouhFdvnaCy0oHTCsi83vJtAWYydINGzZ/exec",
         sheetName: "Leads"
     },
     
