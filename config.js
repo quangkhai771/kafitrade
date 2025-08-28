@@ -2,13 +2,13 @@
 const CONFIG = {
     // App Store Links
     appLinks: {
-        android: "https://play.google.com/store/apps/details?id=com.kafi.trade",
-        ios: "https://apps.apple.com/app/kafi-trade/id123456789"
+        android: "https://play.google.com/store/apps/details?id=vn.kafi.tradeapp&hl=vi",
+        ios: "https://apps.apple.com/vn/app/kafi-trade/id1633169952"
     },
     
     // Google Sheets Integration
     googleSheets: {
-        scriptUrl: "https://script.google.com/macros/s/AKfycbyR6rzWCKg7LO7KCxSriFoZh94tY8EbpH9NBFevPk7hNyQs1eWUF8CQ-B7vtl3tLxkt/exec",
+        scriptUrl: "https://script.google.com/macros/s/AKfycbxf2BRuehzVZtrz0Ju4YTS-3wbtX2fRPIIxOrQ7ufPmi2C-RSDF_73JUSp_9iz3kIia/exec",
         sheetName: "Leads"
     },
     
@@ -26,8 +26,8 @@ const CONFIG = {
                 placeholder: "Số điện thoại"
             },
             email: {
-                enabled: true,
-                required: true,
+                enabled: false,
+                required: false,
                 placeholder: "Email"
             },
             company: {

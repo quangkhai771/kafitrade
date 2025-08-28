@@ -174,12 +174,8 @@ class DeviceDetector {
         }
 
         if (url) {
-            // Try to open in app first, then fallback to browser
-            if (this.device.isMobile) {
-                this.tryDeepLink(url);
-            } else {
-                window.open(url, '_blank');
-            }
+            // Redirect in same tab instead of new tab/popup
+            window.location.href = url;
         }
     }
 

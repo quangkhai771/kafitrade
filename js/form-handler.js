@@ -278,7 +278,14 @@ class FormHandler {
         // Add metadata
         data.timestamp = new Date().toISOString();
         data.source = 'kafi-landing-page';
-        data.device = deviceDetector?.getDeviceInfo();
+        
+        // Get device info and add as separate fields for better compatibility
+        const deviceInfo = deviceDetector?.getDeviceInfo();
+        data.device = deviceInfo;
+        data.deviceType = deviceInfo?.type || '';
+        data.deviceOS = deviceInfo?.os || '';
+        data.deviceBrowser = deviceInfo?.browser || '';
+        
         data.userAgent = navigator.userAgent;
         data.referrer = document.referrer;
         data.utm_source = getUrlParameter('utm_source');
@@ -504,21 +511,33 @@ class FormHandler {
      * Show next steps after successful submission
      */
     showNextSteps() {
-        // Auto-redirect without confirmation
+        // Auto-redirect immediately in same tab
         if (deviceDetector) {
             const device = deviceDetector.getDeviceInfo();
             
             // For desktop/PC users, default to Android link
             if (device.type === 'desktop') {
-                setTimeout(() => {
-                    window.open(CONFIG.appLinks.android, '_blank');
-                }, 1500); // Wait 1.5s to show success message
+                window.location.href = CONFIG.appLinks.android;
             } else {
                 // For mobile devices, use smart detection
-                setTimeout(() => {
-                    deviceDetector.redirectToAppStore();
-                }, 1500);
+                this.redirectToAppStoreSameTab();
             }
+        }
+    }
+
+    /**
+     * Redirect to app store in same tab
+     */
+    redirectToAppStoreSameTab() {
+        const device = deviceDetector.getDeviceInfo();
+        
+        if (device.os === 'android') {
+            window.location.href = CONFIG.appLinks.android;
+        } else if (device.os === 'ios') {
+            window.location.href = CONFIG.appLinks.ios;
+        } else {
+            // Default to Android for unknown devices
+            window.location.href = CONFIG.appLinks.android;
         }
     }
 

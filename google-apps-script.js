@@ -1,15 +1,3 @@
-/**
- * Google Apps Script for Kafi Trade Landing Page Form Submission
- * 
- * Instructions:
- * 1. Open Google Apps Script (script.google.com)
- * 2. Create a new project
- * 3. Replace the default code with this script
- * 4. Create a Google Sheet for storing leads
- * 5. Update the SHEET_ID variable below with your sheet ID
- * 6. Deploy as web app with execute permissions for "Anyone"
- * 7. Copy the web app URL and update CONFIG.googleSheets.scriptUrl in config.js
- */
 
 // Configuration
 const SHEET_ID = 'YOUR_GOOGLE_SHEET_ID_HERE'; // Replace with your Google Sheet ID
@@ -37,6 +25,15 @@ function doPost(e) {
       }
     } else {
       data = e.parameter;
+    }
+    
+    // Parse device info if it's a string
+    if (data.device && typeof data.device === 'string') {
+      try {
+        data.device = JSON.parse(data.device);
+      } catch (parseError) {
+        console.log('Could not parse device info:', data.device);
+      }
     }
     
     // Validate required fields
@@ -101,9 +98,9 @@ function addLeadToSheet(data) {
       data.company || '',
       data.experience || '',
       data.source || 'kafi-landing-page',
-      data.device?.type || '',
-      data.device?.os || '',
-      data.device?.browser || '',
+      data.device?.type || data.deviceType || '',
+      data.device?.os || data.deviceOS || '',
+      data.device?.browser || data.deviceBrowser || '',
       data.userAgent || '',
       data.referrer || '',
       data.utm_source || '',
