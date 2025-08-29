@@ -34,7 +34,7 @@
     
     /* Background */
     --bg-hero: linear-gradient(135deg, #10b981 0%, #059669 100%);
-    --bg-light: linear-gradient(135deg, #f0fdf4 0%, #ecfdf5 100%);
+    --bg-light: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
     --bg-white: var(--white);
     
     /* Shadows */
@@ -579,7 +579,7 @@ body {
 .footer {
     background: #1f2937;
     padding: 3rem 0 1.5rem;
-    margin-top: 4rem;
+    margin-top: 0rem;
     color: #ffffff;
 }
 
