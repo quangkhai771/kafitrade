@@ -93,20 +93,7 @@ function addLeadToSheet(data) {
     const rowData = [
       timestamp,
       data.fullName || '',
-      data.phone || '',
-      data.email || '',
-      data.company || '',
-      data.experience || '',
-      data.source || 'kafi-landing-page',
-      data.device?.type || '',
-      data.device?.os || '',
-      data.device?.browser || '',
-      data.userAgent || '',
-      data.referrer || '',
-      data.utm_source || '',
-      data.utm_medium || '',
-      data.utm_campaign || '',
-      deviceInfo
+      "'" + (data.phone || '') // Add single quote prefix to preserve leading zeros
     ];
     
     // Add the row
@@ -153,20 +140,7 @@ function setupSheetHeaders(sheet) {
   const headers = [
     'Timestamp',
     'Full Name',
-    'Phone',
-    'Email',
-    'Company',
-    'Experience',
-    'Source',
-    'Device Type',
-    'OS',
-    'Browser',
-    'User Agent',
-    'Referrer',
-    'UTM Source',
-    'UTM Medium',
-    'UTM Campaign',
-    'Device Info'
+    'Phone'
   ];
   
   // Set headers
@@ -180,22 +154,13 @@ function setupSheetHeaders(sheet) {
   headerRange.setHorizontalAlignment('center');
   
   // Set column widths
-  sheet.setColumnWidth(1, 150); // Timestamp
-  sheet.setColumnWidth(2, 200); // Full Name
+  sheet.setColumnWidth(1, 200); // Timestamp
+  sheet.setColumnWidth(2, 250); // Full Name
   sheet.setColumnWidth(3, 150); // Phone
-  sheet.setColumnWidth(4, 200); // Email
-  sheet.setColumnWidth(5, 150); // Company
-  sheet.setColumnWidth(6, 120); // Experience
-  sheet.setColumnWidth(7, 120); // Source
-  sheet.setColumnWidth(8, 100); // Device Type
-  sheet.setColumnWidth(9, 80);  // OS
-  sheet.setColumnWidth(10, 80); // Browser
-  sheet.setColumnWidth(11, 300); // User Agent
-  sheet.setColumnWidth(12, 150); // Referrer
-  sheet.setColumnWidth(13, 100); // UTM Source
-  sheet.setColumnWidth(14, 100); // UTM Medium
-  sheet.setColumnWidth(15, 120); // UTM Campaign
-  sheet.setColumnWidth(16, 200); // Device Info
+  
+  // Set phone column format to text to preserve leading zeros
+  const phoneColumn = sheet.getRange(2, 3, sheet.getMaxRows() - 1, 1);
+  phoneColumn.setNumberFormat('@'); // @ format means text
   
   // Freeze header row
   sheet.setFrozenRows(1);
@@ -205,7 +170,7 @@ function setupSheetHeaders(sheet) {
  * Format new row
  */
 function formatNewRow(sheet, rowNumber) {
-  const range = sheet.getRange(rowNumber, 1, 1, 16);
+  const range = sheet.getRange(rowNumber, 1, 1, 3);
   
   // Alternate row colors
   if (rowNumber % 2 === 0) {
@@ -216,7 +181,9 @@ function formatNewRow(sheet, rowNumber) {
   const timestampCell = sheet.getRange(rowNumber, 1);
   timestampCell.setNumberFormat('dd/mm/yyyy hh:mm:ss');
   
-  // No status cell formatting needed anymore
+  // Format phone column as text to preserve leading zeros
+  const phoneCell = sheet.getRange(rowNumber, 3);
+  phoneCell.setNumberFormat('@');
 }
 
 /**
@@ -232,13 +199,6 @@ New lead submitted from Kafi Trade landing page:
 
 Name: ${data.fullName}
 Phone: ${data.phone}
-Email: ${data.email}
-Company: ${data.company || 'Not provided'}
-Experience: ${data.experience || 'Not provided'}
-
-Device: ${data.device?.type || 'Unknown'} (${data.device?.os || 'Unknown'})
-Source: ${data.source || 'Direct'}
-UTM Campaign: ${data.utm_campaign || 'None'}
 
 Submitted at: ${new Date().toLocaleString('vi-VN')}
     `;
@@ -304,17 +264,7 @@ function doOptions(e) {
 function testSetup() {
   const testData = {
     fullName: 'Test User',
-    phone: '0901234567',
-    email: 'test@example.com',
-    company: 'Test Company',
-    experience: 'beginner',
-    source: 'test',
-    device: {
-      type: 'desktop',
-      os: 'windows',
-      browser: 'chrome'
-    },
-    timestamp: new Date().toISOString()
+    phone: '0901234567'
   };
   
   const result = addLeadToSheet(testData);
@@ -338,27 +288,13 @@ function getLeads(limit = 100) {
     const startRow = Math.max(2, lastRow - limit + 1);
     const numRows = lastRow - startRow + 1;
     
-    const range = sheet.getRange(startRow, 1, numRows, 17);
+    const range = sheet.getRange(startRow, 1, numRows, 3);
     const values = range.getValues();
     
     const leads = values.map(row => ({
       timestamp: row[0],
       fullName: row[1],
-      phone: row[2],
-      email: row[3],
-      company: row[4],
-      experience: row[5],
-      source: row[6],
-      deviceType: row[7],
-      os: row[8],
-      browser: row[9],
-      userAgent: row[10],
-      referrer: row[11],
-      utmSource: row[12],
-      utmMedium: row[13],
-      utmCampaign: row[14],
-      deviceInfo: row[15],
-      status: row[16]
+      phone: row[2]
     }));
     
     return { success: true, data: leads };

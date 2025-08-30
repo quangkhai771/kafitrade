@@ -3,12 +3,12 @@ const CONFIG = {
     // App Store Links
     appLinks: {
         android: "https://play.google.com/store/apps/details?id=vn.kafi.tradeapp&hl=vi",
-        ios: "https://apps.apple.com/vn/app/kafi-trade/id1633169952"
+        ios: "https://rutgon.asia/OrZBG10"
     },
     
     // Google Sheets Integration
     googleSheets: {
-        scriptUrl: "https://script.google.com/macros/s/AKfycbzOltKetO8uhGcvfKA2QpTgC9ea_F_i_SFNouhFdvnaCy0oHTCsi83vJtAWYydINGzZ/exec",
+        scriptUrl: "https://script.google.com/macros/s/AKfycbwe5NssM5zPSplck9Ha-N1nZBvv1vpluPb0nIppOsrYJLzVBNECTr8D2iMAhiDOnFLh/exec",
         sheetName: "Leads"
     },
     

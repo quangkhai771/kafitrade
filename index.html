@@ -4,41 +4,32 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kafi Trade - Đầu tư không giới hạn</title>
-    <meta name="description" content="Nhận ưu đãi đầu tư cực hấp dẫn và cơ hội mở khoá hành trình tài chính cùng KAI">
+    <meta name="description" content="Nền tảng trading hiện đại với công nghệ AI, giúp bạn đầu tư hiệu quả và an toàn">
     
     <!-- Favicon -->
-    <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
-    <link rel="icon" type="image/png" href="assets/logo.png">
+    <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
+    <link rel="icon" type="image/png" href="/assets/logo.png">
     
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://kafitrade.com/">
     <meta property="og:title" content="Kafi Trade - Giao dịch thông minh">
-    <meta property="og:description" content="Nền tảng trading hiện đại với công nghệ AI, giúp bạn đầu tư hiệu quả và an toàn. Miễn phí giao dịch, lãi Margin ưu đãi 6.5%">
+    <meta property="og:description" content="Nền tảng trading hiện đại với công nghệ AI, giúp bạn đầu tư hiệu quả và an toàn">
     <meta property="og:image" content="https://kafitrade.com/assets/social-preview.jpg">
     
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://kafitrade.com/">
     <meta property="twitter:title" content="Kafi Trade - Giao dịch thông minh">
-    <meta property="twitter:description" content="Nền tảng trading hiện đại với công nghệ AI, giúp bạn đầu tư hiệu quả và an toàn. Miễn phí giao dịch, lãi Margin ưu đãi 6.5%">
+    <meta property="twitter:description" content="Nền tảng trading hiện đại với công nghệ AI, giúp bạn đầu tư hiệu quả và an toàn">
     <meta property="twitter:image" content="https://kafitrade.com/assets/social-preview.jpg">
     
     <!-- CSS -->
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
-    <header class="banner">
-        <div class="container">
-            <div class="banner-content">
-                <div class="brand">
-                    <a href="index.html">
-                        <img src="assets/logo.svg" alt="Kafi Trade" style="height: 40px; width: auto;">
-                    </a>
-                </div>
-            </div>
-        </div>
-    </header>
+    <!-- Header Component -->
+    <div id="header-component"></div>
 
     <!-- Hero Banner Section -->
     <section class="hero-banner">
@@ -47,7 +38,7 @@
                 <div class="banner-content">
                     <div class="banner-left">
                         <p class="banner-subtitle">Nền tảng trading hiện đại với công nghệ AI, giúp bạn đầu tư hiệu quả và an toàn</p>
-                        <button class="banner-cta-btn" onclick="scrollToForm()">ĐĂNG KÝ NGAY</button>
+                        <a href="/phuchien" class="banner-cta-btn">ĐĂNG KÝ NGAY</a>
                     </div>
                 </div>
             </div>
@@ -58,109 +49,97 @@
     <section class="mobile-banner-content">
         <div class="container">
             <p class="mobile-subtitle">Nền tảng trading hiện đại với công nghệ AI, giúp bạn đầu tư hiệu quả và an toàn</p>
-            <button class="mobile-cta-btn" onclick="scrollToForm()">ĐĂNG KÝ NGAY</button>
+            <a href="/phuchien" class="mobile-cta-btn">ĐĂNG KÝ NGAY</a>
         </div>
     </section>
 
     <!-- Hero Section -->
     <section class="hero">
         <div class="container">
-            <div class="hero-content">
-                <div class="hero-left">
+            <div class="hero-content-centered">
+                <div class="hero-header">
                     <h1 class="hero-title">GIAO DỊCH<br>THÔNG MINH</h1>
                     <p class="hero-subtitle">Nền tảng trading hiện đại với công nghệ AI,<br>giúp bạn đầu tư hiệu quả và an toàn.</p>
-                    
-                    <!-- Form -->
-                    <div class="form-container" id="registration-form">
-                        <form id="leadForm" class="lead-form">
-                            <!-- Dynamic form fields will be generated here -->
-                            <div id="form-fields"></div>
-                            
-                            <button type="submit" class="submit-btn" id="submit-btn">
-                                <span id="submit-text">MỞ TÀI KHOẢN</span>
-                                <div class="loading-spinner" id="loading-spinner"></div>
-                            </button>
-                        </form>
-                        
-                        <div class="form-message" id="form-message"></div>
-                    </div>
                 </div>
-
-                <div class="hero-right">
-                    <div class="qr-section">
-                        <div class="qr-code">
-                            <div class="qr-placeholder">
-                                <svg width="120" height="120" viewBox="0 0 120 120" fill="none">
-                                    <rect width="120" height="120" fill="white" rx="8"/>
-                                    <rect x="10" y="10" width="20" height="20" fill="black"/>
-                                    <rect x="40" y="10" width="10" height="10" fill="black"/>
-                                    <rect x="60" y="10" width="10" height="10" fill="black"/>
-                                    <rect x="90" y="10" width="20" height="20" fill="black"/>
-                                    <rect x="10" y="40" width="10" height="10" fill="black"/>
-                                    <rect x="30" y="40" width="10" height="10" fill="black"/>
-                                    <rect x="50" y="40" width="20" height="10" fill="black"/>
-                                    <rect x="90" y="40" width="10" height="10" fill="black"/>
-                                    <rect x="110" y="40" width="10" height="10" fill="black"/>
-                                    <rect x="10" y="60" width="10" height="10" fill="black"/>
-                                    <rect x="40" y="60" width="10" height="10" fill="black"/>
-                                    <rect x="70" y="60" width="10" height="10" fill="black"/>
-                                    <rect x="100" y="60" width="10" height="10" fill="black"/>
-                                    <rect x="10" y="90" width="20" height="20" fill="black"/>
-                                    <rect x="50" y="90" width="10" height="10" fill="black"/>
-                                    <rect x="80" y="90" width="10" height="10" fill="black"/>
-                                    <rect x="90" y="90" width="20" height="20" fill="black"/>
-                                </svg>
+                
+                <!-- Features Section -->
+                <div class="features-container">
+                    <div class="feature-grid">
+                        <div class="feature-item">
+                            <div class="feature-content">
+                                <div class="feature-icon">
+                                    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+                                        <path d="M2 17l10 5 10-5"/>
+                                        <path d="M2 12l10 5 10-5"/>
+                                    </svg>
+                                </div>
+                                <div class="feature-text">
+                                    <h3>Giao diện thân thiện</h3>
+                                    <p>Dễ sử dụng cho mọi đối tượng, từ người mới bắt đầu đến trader chuyên nghiệp</p>
+                                </div>
                             </div>
-                            <p class="qr-text">Quét mã QR để tải app</p>
                         </div>
+                        <div class="feature-item">
+                            <div class="feature-content">
+                                <div class="feature-icon">
+                                    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M3 3v18h18"/>
+                                        <path d="M18.7 8l-5.1 5.2-2.8-2.7L7 14.3"/>
+                                    </svg>
+                                </div>
+                                <div class="feature-text">
+                                    <h3>Phân tích chuyên sâu</h3>
+                                    <p>Công cụ kỹ thuật hiện đại với hơn 100 chỉ báo và biểu đồ real-time</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-content">
+                                <div class="feature-icon">
+                                    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M12 8V4H8"/>
+                                        <path d="M4 12v8h8"/>
+                                        <path d="M20 12v8h-8"/>
+                                        <path d="M4 8c0-4.4 3.6-8 8-8s8 3.6 8 8-3.6 8-8 8"/>
+                                    </svg>
+                                </div>
+                                <div class="feature-text">
+                                    <h3>AI hỗ trợ</h3>
+                                    <p>Trí tuệ nhân tạo phân tích thị trường và đưa ra tín hiệu giao dịch chính xác</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-content">
+                                <div class="feature-icon">
+                                    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+                                        <circle cx="12" cy="16" r="1"/>
+                                        <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+                                    </svg>
+                                </div>
+                                <div class="feature-text">
+                                    <h3>Bảo mật tuyệt đối</h3>
+                                    <p>Công nghệ bảo mật cấp ngân hàng với mã hóa SSL 256-bit và xác thực 2FA</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="cta-section">
+                        <a href="/phuchien" class="primary-cta-btn">BẮT ĐẦU GIAO DỊCH</a>
+                        <p class="cta-note">Miễn phí đăng ký • Không phí ẩn</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <img src="assets/logo.svg" alt="Kafi Trade" style="height: 50px; width: auto; margin-bottom: 15px;">
-                    <p>Nền tảng giao dịch hiện đại với công nghệ AI, giúp bạn đầu tư thông minh và hiệu quả.</p>
-                </div>
-                <div class="footer-section">
-                    <h4>Liên hệ</h4>
-                    <p>Hotline: 1900 633 322</p>
-                    <p>Email: contact@kafi.vn</p>
-                    <p>Địa chỉ: 111A Pasteur, Phường Sài Gòn, TP. HCM</p>
-                </div>
-                <div class="footer-section">
-                    <h4>Dịch vụ</h4>
-                    <a href="#">Giao dịch Forex</a>
-                    <a href="#">Chứng khoán</a>
-                    <a href="#">Crypto Trading</a>
-                    <a href="#">Khóa học Trading</a>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2025 Kafi Trade. Tất cả quyền được bảo lưu. | <a href="privacy.html">Chính sách bảo mật</a> | <a href="terms.html">Điều khoản sử dụng</a></p>
-            </div>
-        </div>
-    </footer>
+    <!-- Footer Component -->
+    <div id="footer-component"></div>
 
     <!-- Scripts -->
-    <script src="config.js"></script>
-    <script src="js/utils.js"></script>
-    <script src="js/device-detection.js"></script>
-    <script src="js/form-handler.js"></script>
-    <script src="js/main.js"></script>
-    
-    <script>
-        function scrollToForm() {
-            document.getElementById('registration-form').scrollIntoView({
-                behavior: 'smooth',
-                block: 'start'
-            });
-        }
-    </script>
+    <script src="/assets/js/components.js"></script>
 </body>
 </html>
