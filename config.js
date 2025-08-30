@@ -2,7 +2,7 @@
 const CONFIG = {
     // App Store Links
     appLinks: {
-        android: "https://play.google.com/store/apps/details?id=vn.kafi.tradeapp&hl=vi",
+        android: "https://rutgon.asia/qqPOn10",
         ios: "https://rutgon.asia/OrZBG10"
     },
     
