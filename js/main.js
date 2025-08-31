@@ -116,7 +116,7 @@ class KafiLandingPage {
 
         const label = document.createElement('label');
         label.htmlFor = 'terms';
-        label.innerHTML = `Tôi đồng ý với <a href="terms.html" target="_blank">Điều khoản sử dụng</a> và <a href="privacy.html" target="_blank">Chính sách bảo mật</a>`;
+        label.innerHTML = `Tôi đồng ý với <a href="/terms.html" target="_blank">Điều khoản sử dụng</a> và <a href="/privacy.html" target="_blank">Chính sách bảo mật</a>`;
 
         const errorSpan = document.createElement('span');
         errorSpan.className = 'form-error';

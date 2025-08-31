@@ -12,6 +12,9 @@
     --primary-green: #10b981;
     --light-green: #34d399;
     --dark-green: #059669;
+    --primary-blue: #3b82f6;
+    --light-blue: #60a5fa;
+    --dark-blue: #2563eb;
     --orange-gradient: linear-gradient(135deg, #f59e0b 0%, #f97316 100%);
     --white: #ffffff;
     --gray-50: #f9fafb;
@@ -1032,6 +1035,56 @@ body {
     .feature-item p {
         font-size: 0.9rem;
     }
+}
+
+/* Phuchien Page Blue Theme */
+body.phuchien-page {
+    --primary-color: var(--primary-blue);
+    --light-color: var(--light-blue);
+    --dark-color: var(--dark-blue);
+    --primary-green: var(--primary-blue);
+    --light-green: var(--light-blue);
+    --dark-green: var(--dark-blue);
+    --bg-hero: linear-gradient(135deg, var(--primary-blue) 0%, var(--dark-blue) 100%);
+    --success-color: var(--primary-blue);
+}
+
+body.phuchien-page .hero-title {
+    background: linear-gradient(135deg, var(--primary-blue) 0%, var(--dark-blue) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+body.phuchien-page .form-title {
+    background: linear-gradient(135deg, var(--primary-blue) 0%, var(--dark-blue) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+body.phuchien-page .form-group input:focus,
+body.phuchien-page .form-group select:focus {
+    border-color: var(--primary-blue);
+    box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.1);
+}
+
+body.phuchien-page .checkbox-wrapper label a {
+    color: var(--primary-blue);
+}
+
+body.phuchien-page .checkbox-wrapper label a:hover {
+    color: var(--dark-blue);
+}
+
+body.phuchien-page .checkbox-wrapper input[type="checkbox"] {
+    accent-color: var(--primary-blue);
+}
+
+body.phuchien-page .form-message.success {
+    background: rgba(59, 130, 246, 0.1);
+    color: var(--dark-blue);
+    border: 1px solid rgba(59, 130, 246, 0.2);
 }
 
 /* Utility Classes */
