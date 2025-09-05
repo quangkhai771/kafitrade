@@ -2,8 +2,8 @@
 const CONFIG = {
     // App Store Links
     appLinks: {
-        android: "https://rutgon.asia/qqPOn10",
-        ios: "https://rutgon.asia/OrZBG10"
+        android: "https://rutgon.asia/1UKPd10",
+        ios: "https://rutgon.asia/tjF5w30"
     },
     
     // Google Sheets Integration
